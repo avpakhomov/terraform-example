@@ -78,23 +78,23 @@ data "aws_region" "current" {}
 #   }
 # }
 
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = local.web_instance_type_map[terraform.workspace]
-  count         = local.web_instance_count_map[terraform.workspace]
+# resource "aws_instance" "web" {
+#   ami           = data.aws_ami.ubuntu.id
+#   instance_type = local.web_instance_type_map[terraform.workspace]
+#   count         = local.web_instance_count_map[terraform.workspace]
 
-  lifecycle {
-    create_before_destroy = true
-  }
+#   lifecycle {
+#     create_before_destroy = true
+#   }
 
-  #  network_interface {
-  #    network_interface_id = aws_network_interface.nic.id
-  #    device_index         = 0
-  #  }
-  # tags = {
-  #   Name = "test-vm"
-  # }
-}
+#   #  network_interface {
+#   #    network_interface_id = aws_network_interface.nic.id
+#   #    device_index         = 0
+#   #  }
+#   # tags = {
+#   #   Name = "test-vm"
+#   # }
+# }
 
 resource "aws_instance" "web2" {
   ami           = data.aws_ami.ubuntu.id
